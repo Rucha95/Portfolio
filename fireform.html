@@ -1,0 +1,113 @@
+<html>
+<head>
+	<meta  charset="utf-8">
+	<title>cloud data status</title>
+	<style>
+	fieldset {
+  margin: 20px;
+  padding: 0 10px 10px;
+  border: 1px solid #666;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #666;
+  padding-top: 10px;
+  width:450px;
+  background-color:white;
+  float: right;
+}
+legend {
+  padding: 2px 2px;
+  background: #fff;
+  /* For better legibility against the box-shadow */
+}
+fieldset > legend {
+  float: left;
+  margin-top: -20px;
+  background-color:maroon;
+  color:white;
+}
+fieldset > legend + * {
+  clear: both;
+}
+body{
+background-image:url('2.jpg');
+}
+	</style>
+  
+</head>
+<body>
+ <div>
+  <center>
+  <h1 style="color:red;font-size:50px">TEMPCHECK DATA LOGGER SYSTEM </h1></center></div><br><br>
+  <form method="post" action="#" onsubmit="callSubmit()">
+  <fieldset>
+  <legend><h2>Data Status</h2></legend> <br>
+   <h3><b>PD STORE:</b>
+   <input type="radio" id= "py" name="pd_store" value="True" required> True</input>
+   <input type="radio"  id="py"  name="pd_store" value="False" required> False</input> </h3><br>
+   
+   <h3><b>CLOUD STORE:</b>
+   
+   <input type="radio" id= "cy" name="cloud_store" value="True" required> True</input>
+   <input type="radio"   name="cloud_store" value="False" required> False</input></h3><br>
+   
+   <h3><b>STORE INTERVAL:</b>
+   <input type="text" id= "si" name="store_interval" required></h3><br>
+   <H3><b>FILE NAME:</b>
+   <input type="text" id= "fn" name="file name" required> </H3><br>
+   <h3><b>SENSOR CONTROL:</b>
+   <button id="1">ON </button>
+   <button id="2">OFF</button></h3>
+   
+   
+  <H3><input type="submit" name="SEND" ></H3>
+  </fieldset> 
+  
+
+</form>
+
+
+<script type="text/javascript">
+    function callSubmit(){
+      
+      var value = document.getElementById("py").checked;
+      alert( value);
+      
+      data = document.getElementById("cy").checked;
+      alert( data);
+      
+      val = document.getElementById("si").value;
+      alert( val);
+      
+      value_fn = document.getElementById("fn").value;
+      alert( value_fn);
+      
+      
+      dbRef.ref('config/pd_store').set(value);
+      dbRef.ref('config/cloud_store').set(data);
+      dbRef.ref('config/store_interval').set(val);
+      dbRef.ref('config/file name').set(value_fn);
+    }
+  </script>
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCxt21Phl-JCEK8K6DCPteQjobxZNMRE2g",
+    authDomain: "rinkal-555.firebaseapp.com",
+    databaseURL: "https://rinkal-555.firebaseio.com",
+    projectId: "rinkal-555",
+    storageBucket: "rinkal-555.appspot.com",
+    messagingSenderId: "224641135330"
+  };
+  firebase.initializeApp(config);
+//var dbRef = firebase.database().ref().child('my-number');
+//dbRef.on('value', snap => lat.innerText = snap.val());
+	var dbRef = firebase.database();
+</script>
+
+</body>
+</html>
