@@ -3,7 +3,7 @@ NUID:002100149
 Web Design/User Experien Engr 
 Assignment 5
 
-
+Portfolio link: https://rucha95.github.io/Portfolio/
 -I have created my personal portfolio website using HTML,CSS,JavaScript,JQuery,Bootstrap.
 -I have used the -webkit-animation shorthand property for creating css animation to make the site more attractive.
 -I have used external css file for styling.
